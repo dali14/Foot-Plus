@@ -115,7 +115,7 @@ export default function home() {
       {/*end navbar-nav*/}
     </div>
     {/*end container*/}
-  </nav>
+          </nav>
   <nav id="ts-primary-navigation" className="navbar navbar-expand-md navbar-light">
               <div className="container">
                 {/*Brand Logo*/}
