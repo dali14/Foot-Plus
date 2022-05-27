@@ -2,7 +2,7 @@
 import React ,{ useState ,useEffect } from 'react'
 import Link from 'next/link'
 // import Map from './components/Map'
- 
+import { checkout } from "../pages/checkout"
 import Footer from './components/Footer';
 import {useRouter} from 'next/router'
 import withAdmin from './components/withAdmin';
@@ -72,7 +72,7 @@ const Abonement =(props)=>{
                       </div>
                       {/*Footer*/}
                       <div className="card-footer bg-transparent pt-0 border-0">
-                        <a href="#" className="btn btn-outline-primary">Select Now</a>
+                        <a href="/checkout" className="btn btn-outline-primary">Select Now</a>
                       </div>
                     </div>
                   </div>
@@ -102,7 +102,16 @@ const Abonement =(props)=>{
                       </div>
                       {/*Footer*/}
                       <div className="card-footer bg-transparent pt-0 border-0">
-                        <a href="#" className="btn btn-primary">Select Now</a>
+                      <button className="btn btn-outline-primary" onClick={(() => {
+                        checkout({
+                          lineItems: [
+                            {
+                              price: "price_1L44jlE3tX7X8e4oKce7etfR",
+                              quantity: 1
+                            }
+                                  ]
+                                })
+                                      })}>Buy Now</button>
                       </div>
                     </div>
                   </div>
@@ -132,7 +141,16 @@ const Abonement =(props)=>{
                       </div>
                       {/*Footer*/}
                       <div className="card-footer bg-transparent pt-0 border-0">
-                        <a href="#" className="btn btn-outline-primary">Select Now</a>
+                      <button className="btn btn-outline-primary" onClick={(() => {
+                        checkout({
+                          lineItems: [
+                            {
+                              price: "price_1L44lsE3tX7X8e4oVRhRS6V0",
+                              quantity: 1
+                            }
+                                  ]
+                                })
+                                      })}>Buy Now</button>
                       </div>
                     </div>
                   </div>
