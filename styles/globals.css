@@ -50,14 +50,18 @@ body{
 }
 
 .marker {
-  background-color: #4CAF50;
-  border: 1px solid blue;
+  /* background-color: #4CAF50; */
+  border: 0px solid rgb(0, 0, 0);
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  background-image: url("../public/assets/balll.png");
   color: white;
   padding: 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 50px;
   margin: 4px 2px;
   border-radius: 50%;
 }

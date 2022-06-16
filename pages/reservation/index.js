@@ -6,39 +6,38 @@ import Footer from '../../components/Footer'
 export default function index() {
 
     const [isLoading, setLoading] = useState(false)
-    const [compt , setCompt] = useState();
+    const [resv , setResv] = useState();
     
 
     useEffect(() => {
 
         setLoading(true)
-        fetch("http://localhost:3004/competition")
-        .then(res => res.json())
-        .then((data) =>{
+        fetch('http://localhost:3004/terrainres/'+localStorage.getItem("idTerrain"))
+          .then(res => res.json())
+          .then((data) =>{
             if(data.error){
                 console.log("erreur No data")
                 setLoading(false)
 
             }else{
-                setCompt(data)
+                setResv(data)
                 setLoading(false)
                 console.log("data here ... :) ")
             }
            
         })
-         
-        
+        //   .then(res => setAllEvents([...res].map((reservation) => ({
+        //     setLoading(false),
+
+        //     title: " ID reservation :" + reservation.id_Terrain + " | Etat : " + reservation.etat + " | Montant Payer :" + reservation.prixPayant,
+        //     start: new Date(Date.parse(reservation.dateD)),
+        //     end: new Date(Date.parse(reservation.dateF)),
+    
+        //   }))))
+    
       }, [])
 
       
-      function getterrain (x){
-        fetch("http://62.210.130.244:3004/MyTerrain/"+x)
-            
-        .then(res => JSON.stringify(res))
-         .then((data) =>{
-             return data.price ;
-         })
-    }
 
      
 
@@ -79,7 +78,7 @@ export default function index() {
     
     
 
-    if (!compt) return  (
+    if (!resv) return  (
     <div>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -160,7 +159,7 @@ export default function index() {
               
               <div className="container">
                 <div className="ts-title">
-              <h1>competition List</h1>
+              <h1>Reservation Liste</h1>
             </div>
           </div>
               
@@ -178,27 +177,25 @@ export default function index() {
                 =================================================================================================*/}
             <section id="agencies">
               {/*Agency*/}
-              {compt.map((index) =>
+              {resv.map((index) =>
               <div className="card ts-item ts-item__list ts-item__company ts-card" key={index.id}>
                 {/*Ribbon*/}
                 
                 {/*Card Image*/}
                 <a href="agency-detail.html" className="card-img" >
-                  <img src="assets/img/compt.jpg" alt=""  width={250}   height={200}/>
+                    {index.etat =="Confirmed" ? <img src="assets/img/booking-confirmed.png" alt=""  width={250}   height={150}/>
+                    :index.etat =="review"? <img src="assets/img/bookOnReview.png" alt=""  width={250}   height={150}/>
+                    :<img src="assets/img/booking-cancel.png" alt=""  width={250}   height={150}/> }
+                  
                 </a>
                 {/*Card Body*/}
                 <div className="card-body">
                   <figure className="ts-item__info">
-                    <h4>{index.nomComp}</h4>
-                    <aside>
-                      <i className="fa fa-map-marker mr-2" />
-                        <Link href={`/terrainp/${encodeURIComponent(index.id_terrain)}`}>
+                    <h4>{index.name}</h4>
                         <a>
-                        <span className="ts-btn-arrow">Terrain</span>
+                        <span className="ts-btn-arrow">Date : {index.dateD}</span>
+                        <span>{index.dateF}</span>
                         </a>
-                     </Link>
-                     {getterrain(index.id_terrain)}
-                    </aside>
                   </figure>
                   <div className="ts-company-info">
                     <div className="ts-company-contact mb-2 mb-sm-0">
@@ -213,19 +210,19 @@ export default function index() {
                     </div>
                     <div className="ts-description-lists">
                       <dl>
-                        <dt>Price Participate </dt>
-                        <dd>{index.tarif}</dd>
+                        <dt>Etat </dt>
+                        <dd>{index.etat}</dd>
                       </dl>
                       <dl>
-                        <dt>price Win </dt>
-                        <dd>{index.prix}</dd>
+                        <dt>Montant payee </dt>
+                        <dd>{index.prixPayant} DT</dd>
                       </dl>
                     </div>
                   </div>
                 </div>
                 {/*Card Footer*/}
                 <div className="card-footer">
-                <Link href={`/competition/${encodeURIComponent(index._id)}`}>
+                <Link href={`/reservation/${encodeURIComponent(index._id)}`}>
                   <a href="agency-detail.html" className="ts-btn-arrow">Detail</a>
                   </Link>
                 </div>

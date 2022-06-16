@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import {useRouter} from 'next/router'
 import styles from "../styles/Home.module.css";
-import Footer from './components/Footer'
-import NavBar from './components/NavBar'
-import Map from './components/Map'
+import Footer from '../components/Footer'
+import NavBar from '../components/NavBar'
+import Map from '../components/Map'
 
-const edit = () => {
+const Edit = () => {
   const [isLoading, setLoading] = useState(false)
   const [nameTerrain, setNameTerrain] = useState();
   const [price, setPrice] = useState();
@@ -445,4 +445,4 @@ const edit = () => {
       </div>
   )
 }
-export default edit ;
+export default Edit ;

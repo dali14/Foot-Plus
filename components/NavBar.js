@@ -1,4 +1,5 @@
-import styles from "../../styles/Home.module.css";
+import styles from "../styles/Home.module.css";
+
 import React , { useEffect, useState } from 'react'
 import {useRouter} from 'next/router'
 import withAdmin from './withAdmin'
@@ -58,7 +59,7 @@ useEffect(() => {
   <nav id="ts-primary-navigation" className="navbar navbar-expand-md navbar-light">
               <div className="container">
                 {/*Brand Logo*/}
-                <a className="navbar-brand" href="/home">
+                <a  href="/home">
                   <img src="../assets/img/logo.png" alt="" />
                 </a>
                 {/*Responsive Collapse Button*/}

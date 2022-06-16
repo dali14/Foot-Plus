@@ -19,9 +19,10 @@
   font-weight: bold;
 }
 
-.marker {
-  background-color: #4CAF50;
+/* .marker {
+   background-color: #4CAF50; 
   border: 1px solid blue;
+
   color: white;
   padding: 20px;
   text-align: center;
@@ -30,4 +31,4 @@
   font-size: 16px;
   margin: 4px 2px;
   border-radius: 50%;
-}
+} */

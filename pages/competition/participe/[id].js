@@ -1,8 +1,8 @@
 import React ,{ useState, useEffect } from 'react'
-import NavBar from '../../components/NavBar'
-import Footer from '../../components/Footer'
+import NavBar from '../../../components/NavBar'
+import Footer from '../../../components/Footer'
 import {useRouter} from 'next/router'
-export default function participe() {
+export default function Participe() {
   const router = useRouter();
   const [nom , setNom] = useState();
   const [ville , setVille] = useState();

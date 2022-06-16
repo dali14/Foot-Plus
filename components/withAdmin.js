@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react';
 
 
-const withAdmin = (Component) => (props) => {
+const WithAdmin = (Component) => (props) => {
     const [user, setUser] = useState(null);
 
-    const updateUser = () => {
-        fetch("http://localhost:3004/api/details", {headers: {"x-access-token": localStorage.getItem("token")}})
+    const updateUser = async () => {
+        
+             await fetch("http://localhost:3004/api/details", {headers: {"x-access-token": localStorage.getItem("token")}})
             .then(res => res.json())
             .then(res => {
                 setUser(res)
                 localStorage.setItem("iduser",res._id)
                 localStorage.setItem("role",res.role)
             })
+
+        
+        
     }
 
     useEffect(() => {
@@ -30,4 +34,4 @@ const withAdmin = (Component) => (props) => {
     );
 }
 
-export default withAdmin;
+export default WithAdmin;

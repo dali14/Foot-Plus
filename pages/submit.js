@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import Footer from './components/Footer'
-import NavBar from './components/NavBar'
-import Map from './components/Map'
-import withAdmin from './components/withAdmin'
+import Footer from '../components/Footer'
+import NavBar from '../components/NavBar'
+import Map from '../components/Map'
+import withAdmin from '../components/withAdmin'
+import Link from 'next/link'
 
-const submit = (props) => {
+const Submit = (props) => {
   const EditUser = async () => {
 
     const payload = {
@@ -371,4 +372,4 @@ const submit = (props) => {
     </div>
   );
 }
-export default withAdmin(submit)
+export default withAdmin(Submit)

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styles from "../../styles/Home.module.css";
 import { useRouter } from 'next/router'
-import Footer from '../components/Footer'
-import NavBar from '../components/NavBar'
+import Footer from '../../components/Footer'
+import NavBar from '../../components/NavBar'
 export default function UploadImage() {
     const router = useRouter()
     const [id, setId] = useState();

@@ -1,10 +1,11 @@
 
 import React, { useState, useEffect } from "react";
-import Footer from './components/Footer';
-import NavBar from './components/NavBar';
+import Footer from '../components/Footer';
+import NavBar from '../components/NavBar';
 import styles from "../styles/Home.module.css";
-import MapA from './components/MapA'
-import withAdmin from "./components/withAdmin";
+import MapA from '../components/MapA'
+import withAdmin from "../components/withAdmin";
+import Link from 'next/link'
 const Myterrain = (props) => {
 
 
@@ -150,9 +151,7 @@ const Myterrain = (props) => {
               <div className="container">
                 <nav aria-label="breadcrumb">
                   <ol className="breadcrumb">
-                    <li className="breadcrumb-item"><a href="#">Home</a></li>
-                    <li className="breadcrumb-item"><a href="#">Library</a></li>
-                    <li className="breadcrumb-item active" aria-current="page">Data</li>
+                   
                   </ol>
                 </nav>
               </div>
@@ -169,9 +168,34 @@ const Myterrain = (props) => {
                   </div>
 
                   <h3>
-                    <a href="/calendar"> <span className="badge badge-primary p-3 font-weight-normal ts-shadow__sm">My Calendar</span></a>
-                    <a href="/edit"> <span className="badge badge-primary p-3 font-weight-normal ts-shadow__sm">Edit Terrain</span></a>
-                    <a href="/addcompt"> <span className="badge badge-primary p-3 font-weight-normal ts-shadow__sm">Add Competition</span></a>
+                    <Link href="/calendar">
+                    <a className="mx-1">
+                      <span className="badge badge-primary p-3 font-weight-normal ts-shadow__sm">
+                        My Calendar
+                      </span>
+                    </a>
+                    </Link>
+                    <Link href="/reservation">
+                    <a className="mx-1">
+                      <span className="badge badge-primary p-3 font-weight-normal ts-shadow__sm">
+                        List booking
+                      </span>
+                    </a>
+                    </Link>
+                    <Link href="/edit">
+                    <a  className="mx-1">
+                      <span className="badge badge-primary p-3 font-weight-normal ts-shadow__sm">
+                        Edit Terrain
+                      </span>
+                    </a>
+                    </Link>
+                    <Link href="/addcompt">
+                    <a  className="mx-1">
+                      <span className="badge badge-primary p-3 font-weight-normal ts-shadow__sm">
+                        Add Competition
+                      </span>
+                    </a>
+                    </Link>
                   </h3>
 
                 </div>
@@ -221,25 +245,25 @@ const Myterrain = (props) => {
                           <dt><i className="fa fa-phone-square ts-opacity__30 mr-2" />Phone:</dt>
                           <dd className="border-bottom pb-2">+216 {terrain.tel}</dd>
                           <dt><i className="fa fa-envelope ts-opacity__30 mr-2" />Email:</dt>
-                          <dd className="border-bottom pb-2"><a href="#">{terrain.email}</a></dd>
+                          <dd className="border-bottom pb-2"><Link href="/"><a>{terrain.email}</a></Link></dd>
                           <dt><i className="fa fa-globe ts-opacity__30 mr-2" />Website:</dt>
-                          <dd><a href="/">www.footPlus.com</a></dd>
+                          <dd> <Link href="/"><a>www.footPlus.com</a></Link></dd>
                         </dl>
                       </div>
                     </section>
 
                     <section id="actions">
                       <div className="d-flex justify-content-between">
-                        <a href="#" className="btn btn-light mr-2 w-100" data-toggle="tooltip" data-placement="top" title="Add to favorites">
+                        <a className="btn btn-light mr-2 w-100" data-toggle="tooltip" data-placement="top" title="Add to favorites">
                           <i className="far fa-star" />
                         </a>
-                        <a href="#" className="btn btn-light mr-2 w-100" data-toggle="tooltip" data-placement="top" title="Print">
+                        <a className="btn btn-light mr-2 w-100" data-toggle="tooltip" data-placement="top" title="Print">
                           <i className="fa fa-print" />
                         </a>
-                        <a href="#" className="btn btn-light mr-2 w-100" data-toggle="tooltip" data-placement="top" title="Add to compare">
+                        <a className="btn btn-light mr-2 w-100" data-toggle="tooltip" data-placement="top" title="Add to compare">
                           <i className="fa fa-exchange-alt" />
                         </a>
-                        <a href="#" className="btn btn-light w-100" data-toggle="tooltip" data-placement="top" title="Share property">
+                        <a className="btn btn-light w-100" data-toggle="tooltip" data-placement="top" title="Share property">
                           <i className="fa fa-share-alt" />
                         </a>
                       </div>
@@ -256,9 +280,11 @@ const Myterrain = (props) => {
 
                       <div className="file-uploaded-images">
                         {terrain.image.map((img) => <div className="image" key={img.id} >
-                          <a href={img} className="ts-zoom popup-image" >
+                          <Link href={img} >
+                          <a  className="ts-zoom popup-image" >
                             <img src={img} alt="" width={220} height={200} />
                           </a>
+                          </Link>
                         </div>)}
                       </div>
                       {/*Image*/}
@@ -274,28 +300,28 @@ const Myterrain = (props) => {
                         <div className="row no-gutters">
 
                           <div className="col-sm-3">
-                            <div className="ts-quick-info__item" data-bg-image="assets/img/icon-quick-info-shower.png">
+                            <div className="ts-quick-info__item">
                               <h6>Open At</h6>
                               <figure>8h</figure>
                             </div>
                           </div>
 
                           <div className="col-sm-3">
-                            <div className="ts-quick-info__item" data-bg-image="assets/img/icon-quick-info-bed.png">
+                            <div className="ts-quick-info__item">
                               <h6>CapaciteJoueur</h6>
                               <figure>{terrain.capaciteJoueur}</figure>
                             </div>
                           </div>
 
                           <div className="col-sm-3">
-                            <div className="ts-quick-info__item" data-bg-image="assets/img/icon-quick-info-area.png">
+                            <div className="ts-quick-info__item" >
                               <h6>Area</h6>
                               <figure>{terrain.area}<sup>2</sup></figure>
                             </div>
                           </div>
 
                           <div className="col-sm-3">
-                            <div className="ts-quick-info__item" data-bg-image="assets/img/icon-quick-info-garages.png">
+                            <div className="ts-quick-info__item">
                               <h6>Prix Reservation </h6>
                               <figure>{terrain.price}</figure>
                             </div>
@@ -357,17 +383,17 @@ const Myterrain = (props) => {
                     <section id="floor-plans">
                       <h3>Floor Plans</h3>
                       {/*1st Floor*/}
-                      <a href="#collapse-floor-1" className="ts-box d-block mb-2 py-3" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse-floor-1">
+                      <a  className="ts-box d-block mb-2 py-3" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse-floor-1">
                         1st Floor
                         <div className="collapse" id="collapse-floor-1">
-                          <img src="assets/img/img-floor-plan-01.jpg" alt="" className="w-100" />
+                          
                         </div>
                       </a>
                       {/*2nd Floor*/}
-                      <a href="#collapse-floor-2" className="ts-box d-block py-3" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse-floor-2">
+                      <a  className="ts-box d-block py-3" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse-floor-2">
                         2nd Floor
                         <div className="collapse" id="collapse-floor-2">
-                          <img src="assets/img/img-floor-plan-02.jpg" alt="" className="w-100" />
+                          
                         </div>
                       </a>
                     </section>
@@ -410,42 +436,41 @@ const Myterrain = (props) => {
         : terrain == null ?
           <>
             <div>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="author" content="ThemeStarz" />
-        <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="../assets/font-awesome/css/fontawesome-all.min.css" />
-        <link rel="stylesheet" href="../assets/css/leaflet.css" />
-        <link rel="stylesheet" href="../assets/css/style.css" />
-        <title>MyTerrain</title>
-        
-        
-        <div className="ts-page-wrapper ts-has-bokeh-bg" id="page-top">
-          
-          <header id="ts-header" className="fixed-top">
-          </header>
-          <main id="ts-main">
-            
-        
-            
-          <div className="offset-2 col-md-8 text-center">
-            
-          <h1 className={styles.titre}> Vous n'avez pas encore un terrain ... </h1>
+              <meta charSet="UTF-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+              <meta name="author" content="ThemeStarz" />
+              <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css" />
+              <link rel="stylesheet" href="../assets/font-awesome/css/fontawesome-all.min.css" />
+              <link rel="stylesheet" href="../assets/css/leaflet.css" />
+              <link rel="stylesheet" href="../assets/css/style.css" />
+              <title>MyTerrain</title>
 
-          {props?.user?.role == "Client" ?
 
-          <a href="/abonement" className="btn btn-secondary">Abonement</a>
-           :
-           <a href="/submit" className="btn btn-secondary">Add Property</a>
-           }
-          </div>
-          </main>
-          {/*end #ts-main*/}
-          <Footer />
-          {/*end #ts-footer*/}
-        </div>
-        {/*end page*/}
-      </div>
+              <div className="ts-page-wrapper ts-has-bokeh-bg" id="page-top">
+
+                <header id="ts-header" className="fixed-top">
+                </header>
+                <main id="ts-main">
+
+
+
+                  <div className="offset-2 col-md-8 text-center">
+
+                    <h1 className={styles.titre}> Vous n'avez pas encore un terrain ... </h1>
+
+                    {props?.user?.role == "Client" ? 
+                      <Link  href="/abonement"><a className="btn btn-secondary">Abonement</a></Link>
+                      :
+                      <Link href="/submit"><a className="btn btn-secondary">Add Property</a></Link>
+                    }
+                  </div>
+                </main>
+                {/*end #ts-main*/}
+                <Footer />
+                {/*end #ts-footer*/}
+              </div>
+              {/*end page*/}
+            </div>
           </>
           :
           "Loading..."}

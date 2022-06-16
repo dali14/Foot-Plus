@@ -1,20 +1,44 @@
 import React, { useEffect, useState } from 'react'
 import styles from "../../styles/Home.module.css";
+import {useRouter} from 'next/router'
 import NavBar from '../../components/NavBar'
 import Footer from '../../components/Footer'
 import Link from 'next/link'
 
-export default function Compt() {
+export default function ReservationDetail() {
 
 
   const [isLoading, setLoading] = useState(false)
-  const [compt, setCompt] = useState(null)
-
+  const [resv, setResv] = useState(null)
+  const [etat,setEtat] = useState(null)
+  const [montant,setMontant] =useState(null)
+  const router = useRouter()
+  const Editresv = async () => {
+    const payload = {
+      etat,
+      prixPayant : montant,
+      
+      
+    }
+    const responce = await fetch("http://localhost:3004/reservation/"+window.location.pathname.split("/")[2] ,{
+       method: 'put',
+       body: JSON.stringify(payload),
+       headers: { 
+        "Content-Type": "application/json",
+        'Access-Control-Allow-Origin': '*',
+         },
+       })
+      .then((res) => res.json() )
+      .then(res => {
+        console.log(res);
+        router.reload(window.location.pathname)
+  });
+  }
 
   useEffect(() => {
     setLoading(true)
 
-    fetch("http://localhost:3004/competition/" + window.location.pathname.split("/")[2])
+    fetch("http://localhost:3004/reservation/" + window.location.pathname.split("/")[2])
       .then(res => res.json())
       .then((data) => {
 
@@ -22,18 +46,12 @@ export default function Compt() {
           console.log("erreur No data")
           setLoading(false)
         } else {
-
-          setCompt(data)
+          setResv(data)
           setLoading(false)
           console.log("data here ... :) ")
-
         }
-
       })
-
   }, [])
-
-
   if (isLoading) return (
     <div>
       <meta charSet="UTF-8" />
@@ -64,7 +82,7 @@ export default function Compt() {
       </div>
       {/*end page*/}
     </div>)
-  if (!compt) return (<div>
+  if (!resv) return (<div>
     <meta charSet="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="author" content="ThemeStarz" />
@@ -104,7 +122,7 @@ export default function Compt() {
       <link rel="stylesheet" href="../assets/font-awesome/css/fontawesome-all.min.css" />
       <link rel="stylesheet" href="../assets/css/leaflet.css" />
       <link rel="stylesheet" href="../assets/css/style.css" />
-      <title>MyHouse - Advanced Real Estate HTML Template by ThemeStarz</title>
+      <title>Foot Plus - Mes Reservations</title>
       {/* WRAPPER
     =================================================================================================================*/}
       <div className="ts-page-wrapper ts-has-bokeh-bg" id="page-top">
@@ -151,10 +169,13 @@ export default function Compt() {
                 </div>
                 {/*Row*/}
                 <div className="row">
-                  {/*Brand*/}
                   <div className="col-md-4 ts-center__both">
-                    <div className="ts-circle__xxl ts-shadow__md">
-                      <img src={"/assets/img/compt.jpg"} width={300} height={300} alt="" />
+                    <div className="ts-circle__xxl ts-shadow__md">{
+                        resv.etat =="Confirmed" ? <img src={"/assets/img/booking-confirmed.png"} width={200} height={200} alt="" />
+                        :resv.etat =="review"? <img src={"/assets/img/bookOnReview.png"} width={200} height={200} alt="" />
+                        : <img src={"/assets/img/booking-cancel.png"} width={200} height={200} alt="" />
+                    }
+                      
                     </div>
                   </div>
                   {/*Description*/}
@@ -162,53 +183,37 @@ export default function Compt() {
                     <div className="py-4">
                       {/*Title*/}
                       <div className="ts-title mb-2">
-                        <h2 className="mb-1">{compt.nomComp}</h2>
+                        <h2 className="mb-1">Reservation De {resv.name}</h2>
                         <h5>
-                          <Link href={`/terrainp/${encodeURIComponent(compt.id_terrain)}`}>
-                            <a>
-                              Terrain Details
-                            </a>
-                          </Link>
+                        <a>
+                        <span className="ts-btn-arrow">Date : {resv.dateD}</span>
+                        <span>{resv.dateF}</span>
+                        <br></br>
+                        <label htmlFor="type">Etat : {resv.etat}</label>
+                        <br></br>
+                            <label htmlFor="type">Prix : {resv.prix}</label>
+                            <br></br>
+                            <label htmlFor="type">Montant Payee : {resv.prixPayant}</label>
+                        </a>
                         </h5>
                       </div>
-                      {/*Row*/}
-                      <div className="row">
-                        <div className="col-md-7">
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat
-                            tempor sapien. In lobortis posuere tincidunt. Curabitur malesuada tempus
-                            ligula nec maximus.
-                          </p>
-                        </div>
-                        <div className="col-md-5 ts-opacity__50">
-                          {/*Phone*/}
-                          <figure className="mb-1">
-                            <i className="fa fa-phone-square mr-2" />
-                            +1 602-862-1673
-                          </figure>
-                          {/*Mail*/}
-                          <figure className="mb-1">
-                            <i className="fa fa-envelope mr-2" />
-                            <a href="#">weston@example.com</a>
-                          </figure>
-                          {/*Skype*/}
-                          <figure className="mb-0">
-                            <i className="fab fa-skype mr-2" />
-                            weston.properties
-                          </figure>
-                        </div>
-                      </div>
-                      {/*end row*/}
                     </div>
                     {/*end p-4*/}
                     <div className="ts-bg-light p-3 ts-border-radius__md d-block d-sm-flex ts-center__vertical justify-content-between ts-xs-text-center">
-                      <Link href={`/competition/participe/${encodeURIComponent(compt._id)}`}>
-                        <a href="" className="btn btn-outline-secondary btn-sm d-block d-sm-inline-block mb-2 mb-sm-0">Participate here</a>
-                      </Link>
-                      <Link href={`/competition/equipe/${encodeURIComponent(compt._id)}`}>
-                        <a href="" className="btn btn-outline-secondary btn-sm d-block d-sm-inline-block mb-2 mb-sm-0">liste des Equipe</a>
-                      </Link>
-                      <small className="ts-opacity__50"> Nomber de participant : {compt.nbequipe} | Equipe inscri : {compt.nbpar}  |  Date : {compt.date} </small>
+                    <select className="custom-select" id="type" name="type" onChange={(e) => setEtat(e.target.value)}>
+                              <option value>Select Etat</option>
+                              <option value={"Confirmed"}>Confirme</option>
+                              <option value={"review"}>en attende</option>
+                              <option value={"cancel"}>Annuler</option>
+                            </select>
+
+                            <label htmlFor="title">             </label>
+                              <input type="text" placeholder='Montant Payee' className="form-control" id="title" name="title" required  onChange={(e) => setMontant(e.target.value)}/>
+                            
+                          <button  onClick={() => { Editresv() }}  className="btn btn-outline-secondary btn-sm d-block d-sm-inline-block mb-2 mb-sm-0">Modifier ReservationS</button>
+                       
+                      
+                      
                     </div>
                   </div>
                   {/*end col-md-8*/}

@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import styles from "../../styles/Home.module.css";
 import { useRouter } from 'next/router'
-import Footer from '../components/Footer'
-import NavBar from '../components/NavBar'
+import Footer from '../../components/Footer'
+import NavBar from '../../components/NavBar'
 
-import MapA from '../components/MapA'
-
-
-
+import MapA from '../../components/MapA'
+import Link from 'next/link'
 
 
 
 
 
-export default function terrainp() {
+
+
+
+export default function Terrainp() {
 
     const [isLoading, setLoading] = useState(false)
     const [lng, setLng] = useState();
@@ -135,8 +136,8 @@ export default function terrainp() {
               <div className="container">
                 <nav aria-label="breadcrumb">
                   <ol className="breadcrumb">
-                    <li className="breadcrumb-item"><a href="#">Home</a></li>
-                    <li className="breadcrumb-item"><a href="#">Library</a></li>
+                    <li className="breadcrumb-item"><a href="/">Home</a></li>
+                    <li className="breadcrumb-item"><a href="/">Library</a></li>
                     <li className="breadcrumb-item active" aria-current="page">Data</li>
                   </ol>
                 </nav>
@@ -206,25 +207,25 @@ export default function terrainp() {
                           <dt><i className="fa fa-phone-square ts-opacity__30 mr-2" />Phone:</dt>
                           <dd className="border-bottom pb-2">+1 602-862-1673</dd>
                           <dt><i className="fa fa-envelope ts-opacity__30 mr-2" />Email:</dt>
-                          <dd className="border-bottom pb-2"><a href="#">hello@property.com</a></dd>
+                          <dd className="border-bottom pb-2"><a href="/">hello@property.com</a></dd>
                           <dt><i className="fa fa-globe ts-opacity__30 mr-2" />Website:</dt>
-                          <dd><a href="#">www.footPlus.com</a></dd>
+                          <dd><a href="/">www.footPlus.com</a></dd>
                         </dl>
                       </div>
                     </section>
                     
                     <section id="actions">
                       <div className="d-flex justify-content-between">
-                        <a href="#" className="btn btn-light mr-2 w-100" data-toggle="tooltip" data-placement="top" title="Add to favorites">
+                        <a href="/" className="btn btn-light mr-2 w-100" data-toggle="tooltip" data-placement="top" title="Add to favorites">
                           <i className="far fa-star" />
                         </a>
-                        <a href="#" className="btn btn-light mr-2 w-100" data-toggle="tooltip" data-placement="top" title="Print">
+                        <a href="/" className="btn btn-light mr-2 w-100" data-toggle="tooltip" data-placement="top" title="Print">
                           <i className="fa fa-print" />
                         </a>
-                        <a href="#" className="btn btn-light mr-2 w-100" data-toggle="tooltip" data-placement="top" title="Add to compare">
+                        <a href="/" className="btn btn-light mr-2 w-100" data-toggle="tooltip" data-placement="top" title="Add to compare">
                           <i className="fa fa-exchange-alt" />
                         </a>
-                        <a href="#" className="btn btn-light w-100" data-toggle="tooltip" data-placement="top" title="Share property">
+                        <a href="/" className="btn btn-light w-100" data-toggle="tooltip" data-placement="top" title="Share property">
                           <i className="fa fa-share-alt" />
                         </a>
                       </div>
@@ -342,14 +343,14 @@ export default function terrainp() {
                     <section id="floor-plans">
                       <h3>Floor Plans</h3>
                       {/*1st Floor*/}
-                      <a href="#collapse-floor-1" className="ts-box d-block mb-2 py-3" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse-floor-1">
+                      <a href="/" className="ts-box d-block mb-2 py-3" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse-floor-1">
                         1st Floor
                         <div className="collapse" id="collapse-floor-1">
                           <img src="assets/img/img-floor-plan-01.jpg" alt="" className="w-100" />
                         </div>
                       </a>
                       {/*2nd Floor*/}
-                      <a href="#collapse-floor-2" className="ts-box d-block py-3" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse-floor-2">
+                      <a href="/" className="ts-box d-block py-3" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse-floor-2">
                         2nd Floor
                         <div className="collapse" id="collapse-floor-2">
                           <img src="assets/img/img-floor-plan-02.jpg" alt="" className="w-100" />

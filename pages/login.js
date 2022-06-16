@@ -1,5 +1,6 @@
 import React from 'react'
-import Footer from './components/Footer'
+import Link from 'next/link'
+import Footer from '../components/Footer'
 
 import { useState, useEffect } from 'react'
 
@@ -17,7 +18,7 @@ async function loginUser(credentials) {
     .then(data=>data.json())
    
  }
-export default function login() {
+export default function Login() {
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -68,9 +69,7 @@ export default function login() {
               <div className="container">
                 <nav aria-label="breadcrumb">
                   <ol className="breadcrumb">
-                    <li className="breadcrumb-item"><a href="#">Home</a></li>
-                    <li className="breadcrumb-item"><a href="#">Library</a></li>
-                    <li className="breadcrumb-item active" aria-current="page">Data</li>
+  
                   </ol>
                 </nav>
               </div>
@@ -101,9 +100,10 @@ export default function login() {
                       </li>
                       {/*Register tab*/}
                       <li className="nav-item">
-                        <a className="nav-link" id="register-tab" href="/register" data-toggle="tab" role="tab" aria-controls="register" aria-selected="false">
+                        <Link href="/register"><a className="nav-link" id="register-tab"  data-toggle="tab" role="tab" aria-controls="register" aria-selected="false">
                           <h3>Register</h3>
-                        </a>
+                        </a></Link>
+                        
                       </li>
                     </ul>
                     {/*TAB CONTENT
@@ -122,9 +122,10 @@ export default function login() {
                           <div className="input-group ts-has-password-toggle">
                             <input type="password" className="form-control border-right-0" placeholder="Password" required  onChange={e => setPassword(e.target.value)}/>
                             <div className="input-group-append">
-                              <a href="#" className="input-group-text bg-white border-left-0 ts-password-toggle">
+                              <Link href="/"><a  className="input-group-text bg-white border-left-0 ts-password-toggle">
                                 <i className="fa fa-eye" />
-                              </a>
+                              </a></Link>
+                             
                             </div>
                           </div>
                           {/*Checkbox and Submit button*/}
@@ -139,10 +140,11 @@ export default function login() {
                           </div>
                           <hr />
                           {/*Forgot password link*/}
-                          <a href="#" className="ts-text-small">
+                          <Link  href="#"><a className="ts-text-small">
                             <i className="fa fa-sync-alt ts-text-color-primary mr-2" />
                             <span className="ts-text-color-light">I have forgot my password</span>
-                          </a>
+                          </a></Link>
+                          
                         </form>
                       </div>
                     </div>

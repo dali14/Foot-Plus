@@ -3,8 +3,7 @@ import mapboxgl from 'mapbox-gl';
 import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 
-mapboxgl.accessToken =
-  'pk.eyJ1IjoiZGFseTE0MTEiLCJhIjoiY2wybWFvdnBtMGVwNTNlbWExazE1MjlhdyJ9.ukOMSnQFy4phLrvxLiNTOA';
+mapboxgl.accessToken ='pk.eyJ1IjoiZGFseTE0MTEiLCJhIjoiY2wybWFvdnBtMGVwNTNlbWExazE1MjlhdyJ9.ukOMSnQFy4phLrvxLiNTOA';
 
 const Marker = ({ onClick, children, index }) => {
   const _onClick = (e) => {
@@ -12,13 +11,14 @@ const Marker = ({ onClick, children, index }) => {
   };
 
   return (
-    <button onClick={_onClick} className="marker">
-      {children}
-    </button>
+    
+      <button  onClick={_onClick}  className="marker"/>
+     
+    
   );
 };
 
-const homeMap = () => {
+const HomeMap = () => {
   const mapContainerRef = useRef(null);
   const [zoom, setZoom] = useState(10);
   const router = useRouter();
@@ -91,4 +91,4 @@ const homeMap = () => {
   );
 };
 
-export default homeMap;
+export default HomeMap;

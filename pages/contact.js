@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
-import Map from './components/Map'
-import Footer from './components/Footer'
-import NavBar from './components/NavBar'
+import Map from '../components/Map'
+import Footer from '../components/Footer'
+import NavBar from '../components/NavBar'
 
-export default function contact() {
+export default function Contact() {
     const [lng, setLng] = useState(10.1);
     const [lat, setLat] = useState(36.8);
   return (

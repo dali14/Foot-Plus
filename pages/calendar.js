@@ -14,10 +14,10 @@ import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import styles from "../styles/Home.module.css";
-import Footer from './components/Footer'
-import NavBar from './components/NavBar'
+import Footer from '../components/Footer'
+import NavBar from '../components/NavBar'
 
-const calendar = () => {
+const CalendarTest = () => {
 
   const locales = {
     "de": require("date-fns/locale/de"),
@@ -189,5 +189,5 @@ const calendar = () => {
 
   );
 }
-export default calendar;
+export default CalendarTest;
 

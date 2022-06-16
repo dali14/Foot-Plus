@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import axios from "axios";
 
-export default function register() {
+export default function Register() {
 
     const [data, setData] = useState({
 		name: "",

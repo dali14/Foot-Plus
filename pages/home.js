@@ -2,10 +2,10 @@
 import React ,{ useState ,useEffect } from 'react'
 import Link from 'next/link'
 // import Map from './components/Map'
-import Map from './components/homeMap'
-import Footer from './components/Footer';
+import Map from '../components/homeMap'
+import Footer from '../components/Footer';
 import {useRouter} from 'next/router'
-export default function home() {
+export default function Home() {
   const router = useRouter()
 
     const [lng, setLng] = useState(null);
@@ -597,47 +597,7 @@ export default function home() {
                     {/*end ts-item*/}
                   </div>)}
                   
-                  <div className="col-sm-6 col-lg-3">
-                    <div className="card ts-item ts-card">
-                      <div className="badge badge-dark">Full Time this day </div>
-                      {/*Card Image*/}
-                      <a href="detail-01.html" className="card-img ts-item__image" data-bg-image="assets/img/img-item-thumb-08.jpg">
-                        <figure className="ts-item__info">
-                          <h4>Apartment for Rent</h4>
-                          <aside>
-                            <i className="fa fa-map-marker mr-2" />
-                            4831 Worthington Drive
-                          </aside>
-                        </figure>
-                        <div className="ts-item__info-badge">
-                          <span>$480</span>
-                          <small>/ month</small>
-                        </div>
-                      </a>
-                      {/*Card Body*/}
-                      <div className="card-body ts-item__body">
-                        <div className="ts-description-lists">
-                          <dl>
-                            <dt>Area</dt>
-                            <dd>325m<sup>2</sup></dd>
-                          </dl>
-                          <dl>
-                            <dt>Bedrooms</dt>
-                            <dd>2</dd>
-                          </dl>
-                          <dl>
-                            <dt>Bathrooms</dt>
-                            <dd>1</dd>
-                          </dl>
-                        </div>
-                      </div>
-                      {/*Card Footer*/}
-                      <a href="detail-01.html" className="card-footer">
-                        <span className="ts-btn-arrow">Detail</span>
-                      </a>
-                    </div>
-                    {/*end ts-item ts-card*/}
-                  </div>
+                  
                   {/*end Item col-md-4*/}
                 </div>
                 {/*end row*/}
@@ -662,7 +622,7 @@ export default function home() {
                         <h5 className="text-back" >Basic</h5>
                         
                         <a className="ts-title">
-                        <img class="card-img ts-item__image" src="freee.jpg" ></img>
+                        <img className="card-img ts-item__image" src="freee.jpg" ></img>
                           <h3 className="font-weight-normal">Free</h3>
                           <small className="ts-opacity__50">Forever</small>
                         </a>
@@ -689,8 +649,9 @@ export default function home() {
                       {/*Header*/}
                       <div className="card-header" data-bg-color="#00004c">
                         <h5 className="text-white ts-bg-primary">Premium</h5>
+                        
                         <a className="text-back">
-                          <img class="card-header" src="prm.jpg" width={370}  height={400}></img>
+                          <img className="card-header" src="prm.jpg" width={370}  height={400}></img>
                           <h3 className="text-back">
                             <sup>$</sup>9,99
                           </h3>
@@ -720,7 +681,7 @@ export default function home() {
                       <div className="card-header" data-bg-color="#dadada">
                         <h5 className="text-black" data-bg-color="#000296">Professional</h5>
                         <a className="ts-title">
-                        <img class="card-header" src="prof.jpg" width={370}  height={350}></img>
+                        <img className="card-header" src="prof.jpg" width={370}  height={350}></img>
                           <h3 className="font-weight-normal">
                             <sup>$</sup>19,99
                           </h3>
@@ -738,7 +699,8 @@ export default function home() {
                       </div>
                       {/*Footer*/}
                       <div className="card-footer bg-transparent pt-0 border-0">
-                        <a href="#" className="btn btn-outline-primary">Select Now</a>
+                        <Link href="#"><a  className="btn btn-outline-primary">Select Now</a></Link>
+                        
                       </div>
                     </div>
                   </div>
@@ -765,7 +727,7 @@ export default function home() {
                       <i className="fa fa-thumbs-up" />
                     </div>
                     {/*Card Image*/}
-                    <a href="detail-01.html" className="card-img ts-item__image" data-bg-image="assets/img/img-item-thumb-01.jpg">
+                    <a className="card-img ts-item__image">
                       <div className="ts-item__info-badge">
                         $350,000
                       </div>
@@ -795,7 +757,7 @@ export default function home() {
                       </div>
                     </div>
                     {/*Card Footer*/}
-                    <a href="detail-01.html" className="card-footer">
+                    <a className="card-footer">
                       <span className="ts-btn-arrow">Detail</span>
                     </a>
                   </div>
@@ -810,7 +772,7 @@ export default function home() {
                       <span>Updated</span>
                     </div>
                     {/*Card Image*/}
-                    <a href="detail-01.html" className="card-img ts-item__image" data-bg-image="assets/img/img-item-thumb-02.jpg">
+                    <a className="card-img ts-item__image">
                       <figure className="ts-item__info">
                         <h4>Cozy Design Studio</h4>
                         <aside>
@@ -838,7 +800,7 @@ export default function home() {
                       </div>
                     </div>
                     {/*Card Footer*/}
-                    <a href="detail-01.html" className="card-footer">
+                    <a className="card-footer">
                       <span className="ts-btn-arrow">Detail</span>
                     </a>
                   </div>
@@ -849,7 +811,7 @@ export default function home() {
                 <div className="slide">
                   <div className="card ts-item ts-card ts-item__lg">
                     {/*Card Image*/}
-                    <a href="detail-01.html" className="card-img ts-item__image" data-bg-image="assets/img/img-item-thumb-03.jpg">
+                    <a className="card-img ts-item__image">
                       <figure className="ts-item__info">
                         <h4>Family Villa</h4>
                         <aside>
@@ -877,7 +839,7 @@ export default function home() {
                       </div>
                     </div>
                     {/*Card Footer*/}
-                    <a href="detail-01.html" className="card-footer">
+                    <a  className="card-footer">
                       <span className="ts-btn-arrow">Detail</span>
                     </a>
                   </div>
@@ -888,7 +850,7 @@ export default function home() {
                 <div className="slide">
                   <div className="card ts-item ts-card ts-item__lg">
                     {/*Card Image*/}
-                    <a href="detail-01.html" className="card-img ts-item__image" data-bg-image="assets/img/img-item-thumb-04.jpg">
+                    <a  className="card-img ts-item__image" >
                       <div className="ts-item__info-badge">
                         $860,000
                       </div>
@@ -918,7 +880,7 @@ export default function home() {
                       </div>
                     </div>
                     {/*Card Footer*/}
-                    <a href="detail-01.html" className="card-footer">
+                    <a className="card-footer">
                       <span className="ts-btn-arrow">Detail</span>
                     </a>
                   </div>
@@ -929,7 +891,7 @@ export default function home() {
                 <div className="slide">
                   <div className="card ts-item ts-card ts-item__lg">
                     {/*Card Image*/}
-                    <a href="detail-01.html" className="card-img ts-item__image" data-bg-image="assets/img/img-item-thumb-05.jpg">
+                    <a className="card-img ts-item__image">
                       <figure className="ts-item__info">
                         <h4>White Cubes Resort</h4>
                         <aside>
@@ -957,7 +919,7 @@ export default function home() {
                       </div>
                     </div>
                     {/*Card Footer*/}
-                    <a href="detail-01.html" className="card-footer">
+                    <a className="card-footer">
                       <span className="ts-btn-arrow">Detail</span>
                     </a>
                   </div>
@@ -968,7 +930,7 @@ export default function home() {
                 <div className="slide">
                   <div className="card ts-item ts-card ts-item__lg">
                     {/*Card Image*/}
-                    <a href="detail-01.html" className="card-img ts-item__image" data-bg-image="assets/img/img-item-thumb-06.jpg">
+                    <a  className="card-img ts-item__image">
                       <figure className="ts-item__info">
                         <h4>Bristol Tower Complex</h4>
                         <aside>
@@ -996,7 +958,7 @@ export default function home() {
                       </div>
                     </div>
                     {/*Card Footer*/}
-                    <a href="detail-01.html" className="card-footer">
+                    <a  className="card-footer">
                       <span className="ts-btn-arrow">Detail</span>
                     </a>
                   </div>
@@ -1007,7 +969,7 @@ export default function home() {
                 <div className="slide">
                   <div className="card ts-item ts-card ts-item__lg">
                     {/*Card Image*/}
-                    <a href="detail-01.html" className="card-img ts-item__image" data-bg-image="assets/img/img-item-thumb-07.jpg">
+                    <a  className="card-img ts-item__image">
                       <figure className="ts-item__info">
                         <h4>River Apartments</h4>
                         <aside>
@@ -1037,7 +999,7 @@ export default function home() {
                       </div>
                     </div>
                     {/*Card Footer*/}
-                    <a href="detail-01.html" className="card-footer">
+                    <a  className="card-footer">
                       <span className="ts-btn-arrow">Detail</span>
                     </a>
                   </div>
@@ -1049,7 +1011,7 @@ export default function home() {
                   <div className="card ts-item ts-card ts-item__lg">
                     <div className="badge badge-primary">Rent</div>
                     {/*Card Image*/}
-                    <a href="detail-01.html" className="card-img ts-item__image" data-bg-image="assets/img/img-item-thumb-08.jpg">
+                    <a  className="card-img ts-item__image" >
                       <figure className="ts-item__info">
                         <h4>Apartment for Rent</h4>
                         <aside>
@@ -1080,7 +1042,7 @@ export default function home() {
                       </div>
                     </div>
                     {/*Card Footer*/}
-                    <a href="detail-01.html" className="card-footer">
+                    <a  className="card-footer">
                       <span className="ts-btn-arrow">Detail</span>
                     </a>
                   </div>
@@ -1094,38 +1056,16 @@ export default function home() {
         =============================================================================================================*/}
             <section id="submit-banner" className="ts-block">
               <div className="container">
-                <div className="ts-block-inside text-center ts-separate-bg-element" data-bg-image-opacity=".2" data-bg-image="assets/img/bg-chair.jpg" data-bg-color="#fff">
+                <div className="ts-block-inside text-center ts-separate-bg-element" data-bg-image-opacity=".2" data-bg-color="#fff">
                   <figure className="h1 font-weight-light mb-2">Have Some Property For Sale?</figure>
                   <p className="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                  <a href="submit.html" className="btn btn-dark">Submit Your Own</a>
+                  <a  className="btn btn-dark">Submit Your Own</a>
                 </div>
               </div>
             </section>
             {/*PARTNERS
         =============================================================================================================*/}
-            <section id="partners" className="ts-block pt-4 pb-0">
-              <div className="container">
-                {/*Logos*/}
-                <div className="d-block d-md-flex justify-content-between align-items-center text-center ts-partners py-3">
-                  <a href="#">
-                    <img src="assets/img/logo-01.png" alt="" />
-                  </a>
-                  <a href="#">
-                    <img src="assets/img/logo-02.png" alt="" />
-                  </a>
-                  <a href="#">
-                    <img src="assets/img/logo-03.png" alt="" />
-                  </a>
-                  <a href="#">
-                    <img src="assets/img/logo-04.png" alt="" />
-                  </a>
-                  <a href="#">
-                    <img src="assets/img/logo-05.png" alt="" />
-                  </a>
-                </div>
-                {/*end logos*/}
-              </div>
-            </section>
+            
           </main>
           {/***********************************************************************************************************/}
           {/************* FOOTER **************************************************************************************/}
